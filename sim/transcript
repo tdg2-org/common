@@ -1,0 +1,1961 @@
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2023.3 linux_x86_64 Jul 17 2023
+# //
+# //  Copyright 1991-2023 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vmap 2023.3 Lib Mapping Utility 2023.07 Jul 17 2023
+# vmap -c 
+# Copying /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/../modelsim.ini to modelsim.ini
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:26:28 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# ** Error: ../hdl/fifo.sv(4): (vlog-2730) Undefined variable: 'TRUE'.
+# ** Error: ../hdl/fifo.sv(33): (vlog-2730) Undefined variable: 'idx'.
+# ** Error: ../hdl/fifo.sv(36): (vlog-2730) Undefined variable: 'idx'.
+# ** Error: (vlog-13069) ../hdl/fifo.sv(63): near "=": syntax error, unexpected '=', expecting ++ or --.
+# ** Error: ../hdl/fifo.sv(65): Illegal assignment expression in continuous assignment.
+# End time: 16:26:29 on Mar 17,2025, Elapsed time: 0:00:01
+# Errors: 5, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./1_run.do line 7
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:27:01 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# ** Error: (vlog-13069) ../hdl/fifo.sv(63): near "=": syntax error, unexpected '=', expecting ++ or --.
+# ** Error: ../hdl/fifo.sv(65): Illegal assignment expression in continuous assignment.
+# End time: 16:27:01 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./1_run.do line 7
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:28:23 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:28:23 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:28:23 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# ** Error: ../tb/fifo_tb.sv(44): Questa has encountered an unexpected internal error: ../../src/vlog/vrslvdecl.c(14214). Please contact Questa support at https://support.sw.siemens.com/
+# 
+# ** Error: ../tb/fifo_tb.sv(30): (vlog-7300) Actual expression for parameter 'FWFT' in module instance '(null)' must be constant.
+# End time: 16:28:23 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./1_run.do line 8
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../tb/fifo_tb.sv  -sv -work work"
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:28:49 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:28:49 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:28:49 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 16:28:49 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -vopt work.msk_tb -voptargs="+acc" -t ns 
+# Start time: 16:28:49 on Mar 17,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error: (vopt-13130) Failed to find design unit 'msk_tb'.
+#         Searched libraries:
+#             work
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=1, Warnings=1.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./1_run.do PAUSED at line 10
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:29:11 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:29:11 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:29:11 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 16:29:12 on Mar 17,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -vopt work.fifo_tb -voptargs="+acc" -t ns 
+# Start time: 16:28:49 on Mar 17,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): ../tb/fifo_tb.sv(30): (vopt-13259) Missing instance name in instantiation of module/program/interface 'fifo'.
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=2, Warnings=2.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./1_run.do PAUSED at line 10
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:29:31 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:29:31 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:29:31 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 16:29:31 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -vopt work.fifo_tb -voptargs="+acc" -t ns 
+# Start time: 16:28:49 on Mar 17,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Error (suppressible): ../tb/fifo_tb.sv(11): (vopt-7063) Failed to find 'ns' in hierarchical name 'ns'.
+#         Region: fifo_tb
+# Optimization failed
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=3.
+# Error loading design
+# Error: Error loading design
+#        Pausing macro execution
+# MACRO ./1_run.do PAUSED at line 10
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:30:11 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:30:12 on Mar 17,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:30:12 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 16:30:12 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -vopt work.fifo_tb -voptargs="+acc" -t ns 
+# Start time: 16:28:49 on Mar 17,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=3, Warnings=4.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo(fast)
+add wave -position end  sim:/fifo_tb/clk
+add wave -position end  sim:/fifo_tb/wr
+add wave -position end  sim:/fifo_tb/rst
+add wave -position end  sim:/fifo_tb/data
+add wave -position end  sim:/fifo_tb/rd
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:30:48 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:30:48 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:30:48 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 16:30:48 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/idx_wr
+add wave -position end  sim:/fifo_tb/fifo_inst/idx_rd
+add wave -position end  sim:/fifo_tb/fifo_inst/data_o
+add wave -position end  sim:/fifo_tb/fifo_inst/data_out
+add wave -position end  sim:/fifo_tb/fifo_inst/data_mem
+restart
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading work.fifo_tb(fast)
+# Loading work.fifo(fast)
+run 10 us
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:36:20 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:36:20 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:36:20 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 16:36:20 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:38:48 on Mar 17,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 16:38:48 on Mar 17,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 16:38:48 on Mar 17,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 16:38:49 on Mar 17,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/data_o
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:37:31 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# ** Error: ../hdl/fifo.sv(118): (vlog-2730) Undefined variable: 'wr_idx'.
+# ** Error: ../hdl/fifo.sv(123): (vlog-2730) Undefined variable: 'rd_idx'.
+# ** Error: ../hdl/fifo.sv(130): (vlog-2730) Undefined variable: 'wr_idx'.
+# ** Error: ../hdl/fifo.sv(130): (vlog-2730) Undefined variable: 'rd_idx'.
+# End time: 11:37:31 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 4, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 3
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:37:59 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# ** Error: ../hdl/fifo.sv(113): (vlog-2730) Undefined variable: 'idx_wr'.
+# ** Error: ../hdl/fifo.sv(114): (vlog-2730) Undefined variable: 'idx_rd'.
+# End time: 11:38:00 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 2, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 3
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:38:15 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 11:38:15 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:38:15 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 11:38:16 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+# Warning in wave window restart: (vish-4014) No objects found matching '/fifo_tb/fifo_inst/idx_wr'. 
+# Warning in wave window restart: (vish-4014) No objects found matching '/fifo_tb/fifo_inst/idx_rd'. 
+add wave -position end  sim:/fifo_tb/fifo_inst/rd_idx
+add wave -position end  sim:/fifo_tb/fifo_inst/wr_idx
+add wave -position end  sim:/fifo_tb/fifo_inst/wr_idx
+write format wave -window .main_pane.wave.interior.cs.body.pw.wf /mnt/TDG_512/projects/7_common/sim/wave.do
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:39:52 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 11:39:52 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:39:52 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 11:39:52 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:43:32 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 11:43:32 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:43:32 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 11:43:32 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/full
+add wave -position end  sim:/fifo_tb/fifo_inst/empty
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:46:41 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 11:46:41 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:46:42 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 11:46:42 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/mem_idx
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:48:12 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 11:48:12 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:48:12 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 11:48:12 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:50:54 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 11:50:55 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:50:55 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 11:50:55 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:56:42 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 11:56:42 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:56:42 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 11:56:42 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:10:14 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:10:14 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:10:14 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:10:14 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:11:18 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:11:18 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:11:18 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:11:18 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:12:47 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:12:47 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:12:47 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:12:47 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:13:05 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:13:05 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:13:05 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:13:05 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:15:52 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:15:52 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:15:52 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:15:52 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:20:08 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:20:08 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:20:08 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:20:08 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:20:59 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:20:59 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:20:59 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:21:00 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:22:34 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:22:34 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:22:34 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:22:34 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:24:40 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:24:40 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:24:40 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:24:40 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:25:06 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:25:07 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:25:07 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:25:07 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:28:15 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:28:16 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:28:16 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:28:16 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:28:49 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:28:49 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:28:49 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:28:49 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:43:03 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:43:03 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:43:03 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:43:03 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/full_stb
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:48:10 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:48:10 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:48:10 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:48:10 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/full2
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:49:14 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:49:14 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:49:14 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:49:14 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:50:52 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:50:52 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:50:52 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:50:52 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:51:39 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:51:39 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:51:39 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:51:39 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:52:52 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:52:52 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:52:53 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:52:53 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/data_out
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:53:45 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo2
+# End time: 12:53:46 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 12:53:46 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 12:53:46 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 13:56:02 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# ** Error: (vlog-13069) ../hdl/fifo.sv(173): near ";": syntax error, unexpected ';'.
+# End time: 13:56:02 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 3
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 13:56:41 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# ** Error (suppressible): ../hdl/fifo.sv(170): (vlog-12003) Variable 'wr_idx' written by continuous and procedural assignments. See ../hdl/fifo.sv(172). 
+# End time: 13:56:41 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 3
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 13:57:01 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 13:57:01 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 13:57:01 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 13:57:01 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+# Warning in wave window restart: (vish-4014) No objects found matching '/fifo_tb/fifo_inst/mem_idx'. 
+add wave -position end  sim:/fifo_tb/fifo_inst/mem_used
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 13:59:57 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 13:59:57 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 13:59:57 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 13:59:58 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:40:24 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:40:24 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:40:24 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:40:24 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:41:12 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:41:13 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:41:13 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:41:13 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:41:42 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:41:42 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:41:42 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:41:42 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:41:55 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:41:55 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:41:55 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:41:55 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:47:14 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# ** Error: ../hdl/fifo.sv(201): (vlog-2730) Undefined variable: 'mem_idx'.
+# End time: 14:47:14 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 3
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:47:30 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:47:30 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:47:30 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:47:30 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:55:17 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:55:17 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:55:17 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:55:17 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:55:50 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:55:50 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:55:50 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:55:50 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:57:54 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:57:54 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:57:54 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:57:54 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/empty
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:59:23 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 14:59:24 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 14:59:24 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 14:59:24 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:00:16 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 15:00:16 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:00:16 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 15:00:16 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:01:49 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 15:01:49 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:01:49 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 15:01:49 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/data_out
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:03:05 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# ** Error: ../hdl/fifo.sv(211): Illegal left-hand side in continuous assignment.
+# End time: 15:03:05 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 3
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:04:40 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 15:04:40 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:04:40 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 15:04:40 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+add wave -position end  sim:/fifo_tb/fifo_inst/data_mem
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:06:08 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 15:06:08 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:06:08 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 15:06:08 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:41:15 on Mar 18,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# -- Compiling module fifo3
+# -- Compiling module fifo2
+# 
+# Top level modules:
+# 	fifo
+# 	fifo3
+# 	fifo2
+# End time: 15:41:15 on Mar 18,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 15:41:15 on Mar 18,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# 
+# Top level modules:
+# 	fifo_tb
+# End time: 15:41:16 on Mar 18,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb(fast)
+# Loading work.fifo2(fast)
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:12:28 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 11:12:28 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:12:28 on Mar 19,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# -- Compiling module fifo_tb2
+# ** Error (suppressible): ../tb/fifo_tb.sv(138): (vlog-2244) Variable 'expected' is implicitly static. You must either explicitly declare it as static or automatic
+# or remove the initialization in the declaration of variable.
+# ** Error: ../tb/fifo_tb.sv(139): Illegal declaration after the statement near line '134'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 11:12:28 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 2, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./1_run.do line 8
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../tb/fifo_tb.sv  -sv -work work"
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:14:27 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 11:14:28 on Mar 19,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:14:28 on Mar 19,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# -- Compiling module fifo_tb2
+# ** Error: ../tb/fifo_tb.sv(139): Illegal declaration after the statement near line '134'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 11:14:28 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./1_run.do line 8
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../tb/fifo_tb.sv  -sv -work work"
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:15:44 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 11:15:45 on Mar 19,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:15:45 on Mar 19,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# -- Compiling module fifo_tb2
+# ** Error: ../tb/fifo_tb.sv(139): Illegal declaration after the statement near line '134'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 11:15:45 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./1_run.do line 8
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../tb/fifo_tb.sv  -sv -work work"
+do 1_run.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:17:26 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 11:17:26 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:17:26 on Mar 19,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# -- Compiling module fifo_tb2
+# 
+# Top level modules:
+# 	fifo_tb
+# 	fifo_tb2
+# End time: 11:17:26 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:17:26 on Mar 19,2025, Elapsed time: 42:48:37
+# Errors: 3, Warnings: 1
+# vsim -vopt work.fifo_tb2 -voptargs="+acc" -t ns 
+# Start time: 11:17:26 on Mar 19,2025
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb2(fast)
+# Loading work.fifo(fast)
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/clk'.
+# Executing ONERROR command at macro ./wave.do line 3
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/wr'.
+# Executing ONERROR command at macro ./wave.do line 4
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/rst'.
+# Executing ONERROR command at macro ./wave.do line 5
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/data'.
+# Executing ONERROR command at macro ./wave.do line 6
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/rd'.
+# Executing ONERROR command at macro ./wave.do line 7
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/fifo_inst/data_mem'.
+# Executing ONERROR command at macro ./wave.do line 9
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/fifo_inst/data_o'.
+# Executing ONERROR command at macro ./wave.do line 10
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/fifo_inst/rd_idx'.
+# Executing ONERROR command at macro ./wave.do line 11
+# ** UI-Msg (Warning): (vish-4014) No objects found matching '/fifo_tb/fifo_inst/wr_idx'.
+# Executing ONERROR command at macro ./wave.do line 12
+# Starting FIFO test...
+# Filling FIFO...
+# Testing Overflow...
+# ** Error: FAIL: Overflow write attempt when full_o is not asserted!
+#    Time: 350 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 122
+# ** Error: FAIL: Overflow write attempt when full_o is not asserted!
+#    Time: 360 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 122
+# ** Error: FAIL: Overflow write attempt when full_o is not asserted!
+#    Time: 370 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 122
+# ** Error: FAIL: Overflow write attempt when full_o is not asserted!
+#    Time: 380 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 122
+# ** Error: FAIL: Overflow write attempt when full_o is not asserted!
+#    Time: 390 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 122
+# Reading from FIFO...
+# Testing Underflow...
+# ** Error: FAIL: Underflow read attempted but empty_o not asserted!
+#    Time: 420 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 153
+# ** Error: FAIL: Underflow read attempted but empty_o not asserted!
+#    Time: 440 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 153
+# ** Error: FAIL: Underflow read attempted but empty_o not asserted!
+#    Time: 460 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 153
+# ** Error: FAIL: Underflow read attempted but empty_o not asserted!
+#    Time: 480 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 153
+# ** Error: FAIL: Underflow read attempted but empty_o not asserted!
+#    Time: 500 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 153
+# FIFO test completed.
+# ** Note: $finish    : ../tb/fifo_tb.sv(158)
+#    Time: 510 ns  Iteration: 0  Instance: /fifo_tb2
+# 1
+# Break in Module fifo_tb2 at ../tb/fifo_tb.sv line 158
+add wave -position end  sim:/fifo_tb2/dut/full_o
+add wave -position end  sim:/fifo_tb2/dut/full
+add wave -position end  sim:/fifo_tb2/dut/empty
+add wave -position end  sim:/fifo_tb2/dut/empty_o
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:19:53 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# ** Error: (vlog-13069) ../hdl/fifo.sv(57): near "data_out": syntax error, unexpected IDENTIFIER.
+# End time: 11:19:53 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 3
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../hdl/fifo.sv    -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:20:07 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 11:20:07 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:20:07 on Mar 19,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# -- Compiling module fifo_tb2
+# 
+# Top level modules:
+# 	fifo_tb
+# 	fifo_tb2
+# End time: 11:20:07 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb2(fast)
+# Loading work.fifo(fast)
+# Starting FIFO test...
+# Filling FIFO...
+# Testing Overflow...
+# Reading from FIFO...
+# ** Error: FAIL: Expected 0, got 1
+#    Time: 430 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 1, got 2
+#    Time: 450 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 2, got 3
+#    Time: 470 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 3, got 4
+#    Time: 490 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 4, got 5
+#    Time: 510 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 5, got 6
+#    Time: 530 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 6, got 7
+#    Time: 550 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 7, got 8
+#    Time: 570 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 8, got 9
+#    Time: 590 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 9, got 10
+#    Time: 610 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 10, got 11
+#    Time: 630 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 11, got 12
+#    Time: 650 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 12, got 13
+#    Time: 670 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 13, got 14
+#    Time: 690 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 14, got 15
+#    Time: 710 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 15, got 16
+#    Time: 730 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 16, got 17
+#    Time: 750 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 17, got 18
+#    Time: 770 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 18, got 19
+#    Time: 790 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 19, got 20
+#    Time: 810 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 20, got 21
+#    Time: 830 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 21, got 22
+#    Time: 850 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 22, got 23
+#    Time: 870 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 23, got 24
+#    Time: 890 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 24, got 25
+#    Time: 910 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 25, got 26
+#    Time: 930 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 26, got 27
+#    Time: 950 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 27, got 28
+#    Time: 970 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+# ** Error: FAIL: Expected 28, got 29
+#    Time: 990 ns  Scope: fifo_tb2 File: ../tb/fifo_tb.sv Line: 141
+add wave -position end  sim:/fifo_tb2/dut/clk
+add wave -position 1  sim:/fifo_tb2/dut/rst
+add wave -position end  sim:/fifo_tb2/dut/data_i
+add wave -position 3  sim:/fifo_tb2/dut/wr
+add wave -position end  sim:/fifo_tb2/dut/rd
+add wave -position end  sim:/fifo_tb2/dut/data_o
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:32:50 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 11:32:50 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:32:50 on Mar 19,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# -- Compiling module fifo_tb2
+# ** Error: ../tb/fifo_tb.sv(138): Illegal declaration after the statement near line '131'.  Declarations must precede statements.  Look for stray semicolons.
+# End time: 11:32:50 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+# Error in macro ./2_comp.do line 4
+# /mnt/Misc_512/installs/questa/questa_fse/linux_x86_64/vlog failed.
+#     while executing
+# "vlog  ../tb/fifo_tb.sv  -sv -work work"
+do 2_comp.do
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:33:25 on Mar 19,2025
+# vlog -reportprogress 300 ../hdl/fifo.sv -sv -work work 
+# -- Compiling module fifo
+# 
+# Top level modules:
+# 	fifo
+# End time: 11:33:25 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Questa Intel Starter FPGA Edition-64 vlog 2023.3 Compiler 2023.07 Jul 17 2023
+# Start time: 11:33:25 on Mar 19,2025
+# vlog -reportprogress 300 ../tb/fifo_tb.sv -sv -work work 
+# -- Compiling module fifo_tb
+# -- Compiling module fifo_tb2
+# 
+# Top level modules:
+# 	fifo_tb
+# 	fifo_tb2
+# End time: 11:33:25 on Mar 19,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# ** Note: (vsim-12125) Error and warning message counts have been reset to '0' because of 'restart'.
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: (vopt-10587) Some optimizations are turned off because the +acc switch is in effect. This will cause your simulation to run slowly. Please use -access/-debug to maintain needed visibility.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=1.
+# Loading sv_std.std
+# Loading work.fifo_tb2(fast)
+# Loading work.fifo(fast)
+# Starting FIFO test...
+# Filling FIFO...
+# Testing Overflow...
+# Reading from FIFO...
+# PASS: Read 0 correctly
+# PASS: Read 1 correctly
+# PASS: Read 2 correctly
+# PASS: Read 3 correctly
+# PASS: Read 4 correctly
+# PASS: Read 5 correctly
+# PASS: Read 6 correctly
+# PASS: Read 7 correctly
+# PASS: Read 8 correctly
+# PASS: Read 9 correctly
+# PASS: Read 10 correctly
+# PASS: Read 11 correctly
+# PASS: Read 12 correctly
+# PASS: Read 13 correctly
+# PASS: Read 14 correctly
+# PASS: Read 15 correctly
+# PASS: Read 16 correctly
+# PASS: Read 17 correctly
+# PASS: Read 18 correctly
+# PASS: Read 19 correctly
+# PASS: Read 20 correctly
+# PASS: Read 21 correctly
+# PASS: Read 22 correctly
+# PASS: Read 23 correctly
+# PASS: Read 24 correctly
+# PASS: Read 25 correctly
+# PASS: Read 26 correctly
+# PASS: Read 27 correctly
+# PASS: Read 28 correctly
+# PASS: Read 29 correctly
+# PASS: Read 30 correctly
+# PASS: Read 31 correctly
+# Testing Underflow...
+# FIFO test completed.
+# ** Note: $finish    : ../tb/fifo_tb.sv(162)
+#    Time: 840 ns  Iteration: 0  Instance: /fifo_tb2
+# 1
+# Break in Module fifo_tb2 at ../tb/fifo_tb.sv line 162

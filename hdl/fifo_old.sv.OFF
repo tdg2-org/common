@@ -1,0 +1,221 @@
+module fifo #(
+  parameter DWIDTH  = 32,
+  parameter DEPTH   = 32,
+  parameter FWFT    = 1
+)(
+  input   logic               clk     ,
+  input   logic               rst     ,
+  
+  input   logic [DWIDTH-1:0]  data_i  ,
+  input   logic               wr      ,
+  output  logic               full    ,
+  
+  output  logic [DWIDTH-1:0]  data_o  ,
+  input   logic               rd      ,
+  output  logic               empty
+);
+
+  logic [DWIDTH-1:0] data_mem [DEPTH-1:0];
+  logic [DWIDTH-1:0] data_out;
+  logic ful,emp;
+
+  int idx_wr=0,idx_rd=0;
+
+  always_ff @(posedge clk) begin 
+    if (rst) begin 
+      //idx_wr <= 0;
+      //idx_rd <= 0;
+    end else begin 
+      if (wr && rd) begin 
+        data_mem[idx_wr]  <= data_i;
+        //data_out          <= data_mem[idx_rd];
+      end else if (wr) begin 
+        data_mem[idx_wr] <= data_i;
+        //idx           <= idx + 1;
+      end else if (rd) begin 
+        //data_out      <= data_mem[idx_rd];
+        //idx           <= idx - 1;
+      end
+    end 
+  end 
+
+  always_ff @(posedge clk) begin 
+    if (rst) begin 
+      idx_wr <= 0;
+      idx_rd <= 0;
+    end else begin 
+      // write index
+      if (wr && (idx_wr < DEPTH-1)) begin 
+        idx_wr <= idx_wr + 1;
+      end else if (rd && (idx_wr > 0)) begin 
+        idx_wr <= idx_wr - 1;
+      end 
+      // read index
+      if (rd && (idx_rd < idx_wr)) begin 
+        idx_rd <= idx_rd + 1;
+      end else if (wr && (idx_rd < DEPTH-1)) begin 
+        idx_rd <= idx_rd + 1;
+      end 
+    end 
+  end 
+
+
+  assign empty  = (idx_rd == 0 && idx_wr == 0) ? 1:0;
+  
+  assign full   = (idx_wr == DEPTH-1) ? 1:0;
+
+  assign data_o = data_mem[idx_rd];
+
+endmodule
+
+/*
+write: idx increases
+read : idx increases until reaching write idx
+  empty if wr idx = rd idx
+  full  if wr idx - rd idx = max
+  let idx wraparound
+
+
+if (wr) wrx + 1
+  if wrx = max, 0
+
+if (rd) rdx + 1
+  if rdx = max, 0
+
+mem idx = wrx-rdx
+
+*/
+module fifo3 #(
+  parameter DWIDTH  = 32,
+  parameter DEPTH   = 32,
+  parameter FWFT    = 1
+)(
+  input   logic               clk     ,
+  input   logic               rst     ,
+  
+  input   logic [DWIDTH-1:0]  data_i  ,
+  input   logic               wr      ,
+  output  logic               full_o  ,
+  
+  output  logic [DWIDTH-1:0]  data_o  ,
+  input   logic               rd      ,
+  output  logic               empty_o
+);
+
+  logic [DWIDTH-1:0] data_mem [DEPTH-1:0];
+  logic [DWIDTH-1:0] data_out;
+  logic full,empty,full2,full_stb;
+
+  int wr_idx=0,rd_idx=0,mem_idx;
+
+  always_ff @(posedge clk) begin 
+    if (rst) begin 
+      wr_idx <= 0;
+      rd_idx <= 0;
+    end else begin 
+
+      if (wr && !full) begin // and not full
+        if (wr_idx == (DEPTH-1)) wr_idx <= 0;
+        else wr_idx <= wr_idx + 1;
+        //data_mem[wr_idx] <= data_i;
+      end 
+
+      if (rd && !empty) begin // and not empty
+        if (rd_idx == (DEPTH-1)) rd_idx <= 0;
+        else rd_idx <= rd_idx + 1;
+        //data_out <= data_mem[rd_idx];
+      end 
+
+      if (wr && full) full2 <= 1;
+      else if (!full) full2 <= 0;
+
+      if (wr && !full2) begin 
+        data_mem[wr_idx] <= data_i;
+      end 
+
+    end
+  end
+
+  assign mem_idx  = (wr_idx >= rd_idx) ? (wr_idx - rd_idx) : wr_idx + ((DEPTH-1) - rd_idx);
+  assign full     = (mem_idx == (DEPTH-1)) ? 1:0;
+  //assign full_stb = (wr && (mem_idx == (DEPTH-1))) ? 1:0;
+  assign empty    = (wr_idx == rd_idx) ? 1:0;
+
+  assign data_out = data_mem[rd_idx];
+
+
+endmodule
+
+module fifo2 #(
+  parameter DWIDTH  = 32,
+  parameter DEPTH   = 32,
+  parameter FWFT    = 1
+)(
+  input   logic               clk     ,
+  input   logic               rst     ,
+  
+  input   logic [DWIDTH-1:0]  data_i  ,
+  input   logic               wr      ,
+  output  logic               full_o  ,
+  
+  output  logic [DWIDTH-1:0]  data_o  ,
+  input   logic               rd      ,
+  output  logic               empty_o
+);
+
+  logic [DWIDTH-1:0] data_mem [DEPTH-1:0];
+  logic [DWIDTH-1:0] data_out;
+  logic full,empty,full2,full_stb;
+
+  int wr_idx=0,rd_idx=0,mem_used;
+
+  always_ff @(posedge clk) begin 
+    if (rst) begin 
+      wr_idx <= 0;
+      rd_idx <= 0;
+    end else begin 
+
+      if (wr && !full) begin // and not full
+        if (wr_idx == (DEPTH-1)) wr_idx <= 0;
+        else wr_idx <= wr_idx + 1;
+      end 
+
+      if (rd && !empty) begin // and not empty
+        if (rd_idx == (DEPTH-1)) rd_idx <= 0;
+        else rd_idx <= rd_idx + 1;
+      end 
+
+      //if (wr_idx >= rd_idx)   mem_used <= wr_idx - rd_idx;
+      //else                    mem_used <= wr_idx + ((DEPTH-1) - rd_idx);
+
+      if (wr && !full)        mem_used <= mem_used + 1;
+      else if (rd && !empty)  mem_used <= mem_used - 1;
+
+
+
+      //if (mem_used == (DEPTH-1)) full <= 1;
+      //else                       full <= 0;
+
+      //if ((wr_idx == rd_idx) && !full)  empty <= 1;
+      //else                              empty <= 0;
+
+    end
+  end
+
+//  assign mem_used  = (wr_idx >= rd_idx) ? (wr_idx - rd_idx) : wr_idx + ((DEPTH-1) - rd_idx);
+//  assign full     = (mem_used == (DEPTH-1)) ? 1:0;
+  assign full     = (mem_used == (DEPTH)) ? 1:0;
+//  //assign full_stb = (wr && (mem_used == (DEPTH-1))) ? 1:0;
+  assign empty    = ((wr_idx == rd_idx) && !full) ? 1:0;
+//  assign data_out = data_mem[rd_idx];
+  assign data_out = (!empty) ? data_mem[rd_idx] : data_out;
+  
+  always_comb begin
+    if (wr && !full) data_mem[wr_idx] <= data_i;
+    //if (!empty) data_out = data_mem[rd_idx]
+  end
+  
+
+
+
+endmodule
