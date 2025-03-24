@@ -26,6 +26,8 @@ architecture rtl of led_cnt_vhd19 is
   signal cnt, cnt_max : unsigned(27 downto 0);
   signal led          : std_logic;
 
+  signal probe0, probe1 : std_logic_vector(4 downto 0);
+
 ----------------------------------------------------------------------------------------------------
 begin  -- architecture
 -------------------------------------------------------------------------------------------------       
@@ -52,4 +54,21 @@ begin  -- architecture
 
   led_o <= led;
 
+----------------------------------------------------------------------------------------------------
+-- debug
+-------------------------------------------------------------------------------------------------       
+
+--ila1: entity work.ila1
+--  port map (
+--    clk     => clk,
+--    probe0  => probe0,
+--    probe1  => probe1
+--  );
+--
+--  probe0(2 downto 0) <= std_logic_vector(cnt(2 downto 0));
+--  probe0(3) <= rst;
+--  probe0(4) <= wren_i;
+--  probe1 <= std_logic_vector(div_i);
+
 end architecture rtl;
+
