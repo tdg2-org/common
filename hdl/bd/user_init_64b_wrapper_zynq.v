@@ -14,6 +14,11 @@ module user_init_64b_wrapper_zynq (
     .value_o  (value_o)
   );
 
+//  user_init_32b bd_timestamp_inst (
+//    .clk      (1'b0),
+//    .value_o  (timestamp_top)
+//  );
+
   USR_ACCESSE2 USR_ACCESSE2_inst (
      .CFGCLK    (usr_access_cfgclk_o),   // 1-bit output: Configuration Clock
      .DATA      (usr_access_data_o),     // 32-bit output: Configuration Data reflecting the contents of the AXSS register
