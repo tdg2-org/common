@@ -56,3 +56,20 @@ module data_stream_gen #(
   assign data_out = BIT_STREAM[index_counter];
 
 endmodule
+
+/*
+
+data_stream_gen #(
+  .STREAM_LEN   (     ),
+  .BIT_STREAM   (     ),
+  .HOLD_CYCLES  (     ),
+  .LOOP         (     )
+) data_stream_gen_inst (
+  .clk      (         ),
+  .reset    (         ),
+  .start_in (         ),
+  .data_out (         )
+);
+
+
+*/

@@ -12,9 +12,111 @@ module i2c_sink (
   output  sda_o ,
   input   sda_t 
 );
+//-------------------------------------------------------------------------------------------------
+//
+//-------------------------------------------------------------------------------------------------
 
-  assign sda_o = '1;
-  assign scl_o = '1;
+  assign sda_o = 0;
+
+  typedef enum {
+    IDLE,GET_DADDR,GET_MADDR,GET_DATA,ACK1,ACK2,ACK3
+  } i2c_sm_type;
+
+  i2c_sm_type I2C_SM;
+
+  int cnt;
+  logic [7:0] dev_addr, mem_addr, data1;
+  logic live=0,scl_re,scl_fe;
+  logic [1:0] scl_sr,sda_sr;
+
+  assign scl_re = (scl_sr == 'b01) ? 1:0;
+  assign scl_fe = (scl_sr == 'b10) ? 1:0;
+
+  always_ff @(posedge clk) begin //oversample i2c clock
+    scl_sr <= {scl_sr[0],scl_i};
+    sda_sr <= {sda_sr[0],sda_i};
+    case (I2C_SM) 
+      IDLE: begin 
+        if (!live && !sda_sr[1] && scl_sr[1]) begin //start cond
+          live <= 1;
+          I2C_SM <= GET_DADDR;
+        end
+      end
+
+      GET_DADDR: begin //0
+        if (scl_re) begin 
+          dev_addr <= {dev_addr[6:0],sda_i};
+          cnt <= cnt + 1;
+          if (cnt == 7) begin  
+            cnt <= 0;
+            I2C_SM <= ACK1;
+          end
+        end
+      end
+      
+      ACK1: begin  
+        if (scl_re) begin 
+          I2C_SM <= GET_MADDR;
+        end
+      end
+
+      GET_MADDR: begin 
+        if (scl_re) begin  
+          mem_addr <= {mem_addr[6:0],sda_i};
+          cnt <= cnt + 1;
+          if (cnt == 7) begin
+            cnt <= 0;
+            I2C_SM <= ACK2;
+          end
+        end
+      end
+
+      ACK2: begin  
+        if (scl_re) begin 
+          I2C_SM <= GET_DATA;
+        end
+      end
+
+      GET_DATA: begin 
+        if (scl_re) begin
+          data1 <= {data1[6:0],sda_i};
+          cnt <= cnt + 1;
+          if (cnt == 7) begin
+            cnt <= 0;
+            I2C_SM <= ACK3;
+          end
+        end
+      end
+
+      ACK3 : begin 
+        if (scl_re) begin   
+          live <= 0;
+          I2C_SM <= IDLE;
+        end
+      end
+
+    endcase 
+  end 
+
+//-------------------------------------------------------------------------------------------------
+//
+//-------------------------------------------------------------------------------------------------
+
+`ifndef QUESTA
+`ifndef MODELSIM
+
+ila2 ila2 (
+	.clk(clk), // input wire clk
+	.probe0(dev_addr  ),  // input wire [7:0]  probe0  
+	.probe1(mem_addr  ),  // input wire [7:0]  probe1
+	.probe2(data1     ),  // input wire [7:0]  probe1
+  .probe3(scl_re    ),
+  .probe4(scl_fe    )
+);
+
+`endif
+`endif 
+
 
 
 endmodule

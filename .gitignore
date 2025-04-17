@@ -1,0 +1,7 @@
+
+# this will ignore everything in sim, except do/tcl recursively
+/sim/**
+!/sim/**/
+!/sim/**/*.do
+!/sim/**/*.tcl
+

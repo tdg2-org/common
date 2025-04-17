@@ -13,8 +13,24 @@ module i2c_sink (
   input   sda_t 
 );
 
-  assign sda_o = '1;
-  assign scl_o = '1;
+  logic scl,sda;
+
+  always_comb begin
+    if (scl_t)  scl <= '1;
+    else        scl <= '0;
+
+    if (sda_t)  sda <= '1;
+    else        sda <= '0;
+
+  end
+  
+  // T = high -> output buffer DISABLED
+
+  //assign sda_o = sda_i;
+  //assign scl_o = scl_i;
+
+  assign sda_o = sda;
+  assign scl_o = scl;
 
 
 endmodule
