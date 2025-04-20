@@ -10,8 +10,6 @@ add wave -noupdate -group gen -radix unsigned /i2c_top_tb/serial_data_gen_inst/b
 add wave -noupdate -group gen /i2c_top_tb/serial_data_gen_inst/ser_data_tri
 add wave -noupdate -group gen /i2c_top_tb/serial_data_gen_inst/CLK_SM
 add wave -noupdate -group gen /i2c_top_tb/serial_data_gen_inst/DAT_SM
-add wave -noupdate -expand -group rsp /i2c_top_tb/i2c_top_inst/i2c_sink_inst/scl_i
-add wave -noupdate -expand -group rsp /i2c_top_tb/i2c_top_inst/i2c_sink_inst/scl_o
 add wave -noupdate -expand -group rsp /i2c_top_tb/i2c_top_inst/i2c_sink_inst/scl_t
 add wave -noupdate -expand -group rsp /i2c_top_tb/i2c_top_inst/i2c_sink_inst/sda_i
 add wave -noupdate -expand -group rsp /i2c_top_tb/i2c_top_inst/i2c_sink_inst/sda_t
@@ -20,6 +18,7 @@ add wave -noupdate -expand -group rsp /i2c_top_tb/i2c_top_inst/i2c_sink_inst/I2C
 add wave -noupdate -expand -group rsp -radix unsigned /i2c_top_tb/i2c_top_inst/i2c_sink_inst/cnt
 add wave -noupdate -expand -group rsp /i2c_top_tb/i2c_top_inst/i2c_sink_inst/scl_re
 add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/dev_addr
+add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/rw
 add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/dev_valid
 add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/mem_addr
 add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/mem_valid
@@ -28,9 +27,10 @@ add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/data_valid
 add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/ack
 add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/ack_sync
 add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/scl_fe
+add wave -noupdate /i2c_top_tb/i2c_top_inst/i2c_sink_inst/sda_send
 TreeUpdate [SetDefaultTree]
-WaveRestoreCursors {{Cursor 14} {1085 ns} 0}
-quietly wave cursor active 1
+WaveRestoreCursors {{Cursor 15} {870 ns} 1} {{Cursor 16} {1164 ns} 0}
+quietly wave cursor active 2
 configure wave -namecolwidth 150
 configure wave -valuecolwidth 100
 configure wave -justifyvalue left

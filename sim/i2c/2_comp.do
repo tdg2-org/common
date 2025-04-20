@@ -12,4 +12,4 @@ restart
 
 log -r *
 
-run 8000ns
+run 10000ns
