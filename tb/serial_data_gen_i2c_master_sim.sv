@@ -6,10 +6,11 @@
 module serial_data_gen_i2c_master_sim #(
   parameter int DATA_WIDTH  = 8,
   // The serial data to be transmitted.
-  parameter logic [DATA_WIDTH-1:0] DATA_VALUE = 8'hA5,
+//  parameter logic [DATA_WIDTH-1:0] DATA_VALUE = 8'hA5,
   // Clock period (simulation time units)
   parameter int CLK_PERIOD  = 20
 )(
+  input  logic [DATA_WIDTH-1:0] DATA_VALUE,
   input  logic start_tx,     // Assert to start a transmission
   input  logic repeat_tx,    // If high, repeat transmission after each frame
   output logic ser_clk,      // Serial clock output aligned to the data

@@ -28,11 +28,11 @@ i2c_top i2c_top_inst (
   .clk    (clk        ),
   .rst    (rst        ),
   .scl0_i (i2c0_scl_o ),
-  .scl0_t (i2c0_scl_t ), // t=1, INPUT, t=0 OUTPUT
+  .scl0_t (i2c0_scl_o ), // t=1, INPUT, t=0 OUTPUT
   .scl0_o (i2c0_scl_i ),
   .sda0_i (i2c0_sda_o ),
   .sda0_o (i2c0_sda_i ),
-  .sda0_t (i2c0_sda_t ),
+  .sda0_t (i2c0_sda_o ),
   .scl1_i (i2c1_scl_o ),
   .scl1_t (i2c1_scl_t ),
   .scl1_o (i2c1_scl_i ),
@@ -43,14 +43,15 @@ i2c_top i2c_top_inst (
 
 logic start_tx=0,loop=0;
 
-localparam int DW = 24;
-localparam logic [DW-1:0]  data = 'h4512f1;
+localparam int DW = 32;
+logic [DW-1:0]  data = 'h4512f319;
 
 serial_data_gen_i2c_master_sim #(
   .DATA_WIDTH   (DW      ),           
-  .DATA_VALUE   (data   ),           
+//  .DATA_VALUE   (data   ),           
   .CLK_PERIOD   (100    )
 ) serial_data_gen_inst (
+  .DATA_VALUE   (data     ),
   .start_tx     (start_tx ),
   .repeat_tx    (loop     ),
   .ser_clk      (i2c0_scl_o),
@@ -67,7 +68,7 @@ initial begin
   #50ns;
   start_tx = '1;#50ns;start_tx = '0;
   #4000ns;
-  //data = 'h6132f7;
+  data = 'h61322387;
   start_tx = '1;#50ns;start_tx = '0;
 
 end 
