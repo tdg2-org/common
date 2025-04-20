@@ -37,7 +37,7 @@ module i2c_sink (
 
   i2c_sm_type I2C_SM;
 
-  int cnt;
+  logic [2:0] cnt=7;
   logic [7:0] data1, data2, dev_addr, mem_addr, data_send=8'hC3;
   logic [15:0] data_in;
   logic live=0,scl_re,scl_fe,rw,sda_send;
@@ -53,7 +53,7 @@ module i2c_sink (
     sda_sr <= {sda_sr[0],sda};
     
     if (scl_sr[1] && sda_re) begin//stop cond
-      cnt <= 0;
+      cnt <= 7;
       I2C_SM <= IDLE;
     end else begin 
     
@@ -69,11 +69,12 @@ module i2c_sink (
 
       GET_DADDR: begin //0
         if (scl_re) begin 
-          data1 <= {data1[6:0],sda};
-          cnt <= cnt + 1;
-          if (cnt == 7) begin  
+          //data1 <= {data1[6:0],sda};
+          data1[cnt] <= sda;
+          cnt <= cnt - 1;
+          if (cnt == 0) begin  
             rw  <= sda;
-            cnt <= 0;
+            cnt <= 7;
             I2C_SM <= ACK1;
           end
         end
@@ -89,9 +90,9 @@ module i2c_sink (
       SEND_DATA: begin 
         if (scl_fe) begin  
           sda_send <= data_send[cnt];
-          cnt <= cnt + 1;
-          if (cnt == 7) begin
-            cnt <= 0;
+          cnt <= cnt - 1;
+          if (cnt == 0) begin
+            cnt <= 7;
             I2C_SM <= ACK3;
           end
         end 
@@ -99,10 +100,11 @@ module i2c_sink (
 
       GET_MADDR: begin 
         if (scl_re) begin  
-          data2 <= {data2[6:0],sda};
-          cnt <= cnt + 1;
-          if (cnt == 7) begin
-            cnt <= 0;
+          //data2 <= {data2[6:0],sda};
+          data2[cnt] <= sda;
+          cnt <= cnt - 1;
+          if (cnt == 0) begin
+            cnt <= 7;
             I2C_SM <= ACK2;
           end
         end
@@ -117,9 +119,9 @@ module i2c_sink (
       GET_DATA: begin 
         if (scl_re) begin
           data_in <= {data_in[14:0],sda};
-          cnt <= cnt + 1;
-          if (cnt == 7) begin
-            cnt <= 0;
+          cnt <= cnt - 1;
+          if (cnt == 0) begin
+            cnt <= 7;
             I2C_SM <= ACK3;
           end
         end
