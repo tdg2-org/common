@@ -1,5 +1,9 @@
+
+// designed for avnet ZUBoard, MAC eeprom AT24MAC402
 // does not send data to master, but accepts data sent by master - up to 3 bytes, in addition
 // to device address. the 3 bytes are mem_addr and 2bytes of data_in
+// 7bit dev addr + RW bit, 8bit mem addr, 8 bit data...
+// RW bit = 1 read, 0 write
 
 `timescale 1ns / 1ps  // <time_unit>/<time_precision>
 
