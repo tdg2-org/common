@@ -1,9 +1,11 @@
-
+// does not send data to master, but accepts data sent by master - up to 3 bytes, in addition
+// to device address. the 3 bytes are mem_addr and 2bytes of data_in
 
 `timescale 1ns / 1ps  // <time_unit>/<time_precision>
 
 module i2c_sink (
   input   clk   ,
+  input   clk12 ,
   input   rst   ,
   input   scl_i ,
   input   scl_t ,
@@ -32,8 +34,8 @@ module i2c_sink (
   i2c_sm_type I2C_SM;
 
   int cnt;
-  logic [7:0] dev_addr, mem_addr;
-  logic [15:0] data1;
+  logic [7:0] data1, data2, dev_addr, mem_addr;
+  logic [15:0] data_in;
   logic live=0,scl_re,scl_fe;
   logic [1:0] scl_sr,sda_sr;
 
@@ -53,7 +55,7 @@ module i2c_sink (
     
     case (I2C_SM) 
       IDLE: begin 
-        data1<='0;
+        data_in<='0;
         //if (!live && !sda_sr[1] && scl_sr[1]) begin //start cond
         if (scl_sr[1] && sda_fe) begin //start cond
           live <= 1;
@@ -63,7 +65,7 @@ module i2c_sink (
 
       GET_DADDR: begin //0
         if (scl_re) begin 
-          dev_addr <= {dev_addr[6:0],sda};
+          data1 <= {data1[6:0],sda};
           cnt <= cnt + 1;
           if (cnt == 7) begin  
             cnt <= 0;
@@ -80,7 +82,7 @@ module i2c_sink (
 
       GET_MADDR: begin 
         if (scl_re) begin  
-          mem_addr <= {mem_addr[6:0],sda};
+          data2 <= {data2[6:0],sda};
           cnt <= cnt + 1;
           if (cnt == 7) begin
             cnt <= 0;
@@ -97,7 +99,7 @@ module i2c_sink (
 
       GET_DATA: begin 
         if (scl_re) begin
-          data1 <= {data1[14:0],sda};
+          data_in <= {data_in[14:0],sda};
           cnt <= cnt + 1;
           if (cnt == 7) begin
             cnt <= 0;
@@ -129,23 +131,37 @@ module i2c_sink (
 
   assign sda_o = (ack_sync) ? 0 : sda_t;
 
-  logic data_valid;
+  logic data_valid, dev_valid, mem_valid, rw;
+
+  assign dev_valid  = (I2C_SM==ACK1) ? 1:0;
+  assign mem_valid  = (I2C_SM==ACK2) ? 1:0;
   assign data_valid = (I2C_SM==ACK3) ? 1:0;
+
+  always_comb begin 
+    if (dev_valid) begin 
+      dev_addr  = {1'b0,data1[7:1]};
+      rw        = data1[0];
+    end
+    if (mem_valid) mem_addr = data2;
+  end
 
 //-------------------------------------------------------------------------------------------------
 //
 //-------------------------------------------------------------------------------------------------
 
+
 `ifndef QUESTA
 `ifndef MODELSIM
-ila2 ila2 (
+
+ila2 ila2_0 (
 	.clk(clk), // input wire clk
-	.probe0(dev_addr  ),  // input wire [7:0]  probe0  
-	.probe1(mem_addr  ),  // input wire [7:0]  probe1
-	.probe2(data1     ),  // input wire [7:0]  probe1
-  .probe3(scl_re    ),
-  .probe4(scl_fe    )
+	.probe0(dev_addr      ),  // input wire [7:0]  probe0  
+	.probe1(mem_addr      ),  // input wire [7:0]  probe1
+	.probe2(data_in       ),  // input wire [15:0]  probe1
+	.probe3({scl_t, ack, ack_sync, rw, scl_re, scl_fe, sda_re, sda_fe }    ),  // input wire [7:0]  probe1
+  .probe4({dev_valid, mem_valid, data_valid  }   ) // [2:0]
 );
+
 `endif
 `endif 
 
