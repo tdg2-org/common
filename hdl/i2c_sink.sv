@@ -40,7 +40,7 @@ module i2c_sink (
   logic [2:0] cnt=7;
   logic [7:0] data1, data2, dev_addr, mem_addr, data_send=8'hC3;
   logic [15:0] data_in;
-  logic live=0,scl_re,scl_fe,rw,sda_send;
+  logic live=0,scl_re,scl_fe,rw,sda_send=0,rw_align_fe;
   logic [1:0] scl_sr,sda_sr;
 
   assign scl_re = (scl_sr == 'b01) ? 1:0;
@@ -52,6 +52,9 @@ module i2c_sink (
     scl_sr <= {scl_sr[0],scl};
     sda_sr <= {sda_sr[0],sda};
     
+    if (scl_fe && rw) rw_align_fe <= '1;
+    else if (!rw)     rw_align_fe <= '0;
+
     if (scl_sr[1] && sda_re) begin//stop cond
       cnt <= 7;
       I2C_SM <= IDLE;
@@ -150,7 +153,7 @@ module i2c_sink (
   end
 
   assign sda_o =  (ack_sync) ? 0 : 
-                  (rw) ? sda_send: sda_t;
+                  (rw_align_fe) ? sda_send: sda_t;
 
   logic data_valid, dev_valid, mem_valid;
 

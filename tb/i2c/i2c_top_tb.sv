@@ -43,10 +43,10 @@ i2c_top i2c_top_inst (
 
 logic start_tx=0,loop=0;
 
-localparam int DW = 32;
+localparam int DW = 16;
 //logic [DW-1:0]  data = 'h4512ffff;
 logic RW = 1;//1=RD, 0=WR
-logic [DW-1:0]  data = {7'h58,RW,8'h12,8'hff,8'h66};
+logic [DW-1:0]  data = {7'h58,RW,8'h0};
 
 serial_data_gen_i2c_master_sim #(
   .DATA_WIDTH   (DW      ),           
@@ -70,7 +70,7 @@ initial begin
   #50ns;
   start_tx = '1;#50ns;start_tx = '0;
   #5000ns;
-  data = {7'h55,1'b0,8'h12,8'hff,8'h77};
+  data = {7'h55,1'b0,8'h12};
   start_tx = '1;#50ns;start_tx = '0;
 
 end 
