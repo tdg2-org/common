@@ -1,22 +1,30 @@
 
 // designed for avnet ZUBoard, MAC eeprom AT24MAC402
-// does not send data to master, but accepts data sent by master - up to 3 bytes, in addition
+// accepts data sent by master - up to 3 bytes, in addition
 // to device address. the 3 bytes are mem_addr and 2bytes of data_in
 // 7bit dev addr + RW bit, 8bit mem addr, 8 bit data...
 // RW bit : 1=read, 0=write
+// responds to master read operations. external data_send or data written by master
+
+// no consideration for timing/CDC - i2c runs at 100KHz, everything else 100MHz, meh...
+// passes timing fine, dont care, just meant as a test/debug tool
+
+// i2c clock and data from master are on the tri-state control '_t' pins!! 
 
 `timescale 1ns / 1ps  // <time_unit>/<time_precision>
 
 module i2c_sink (
-  input   clk   ,
-  input   clk12 ,
-  input   rst   ,
-  input   scl_i ,
-  input   scl_t ,
-  output  scl_o ,
-  input   sda_i ,
-  output  sda_o ,
-  input   sda_t 
+  input           clk             , // 100mhz
+  input           clk12           , // clk div8 = 12.5mhz
+  input           rst             ,
+  input           data_send_en_i  ,
+  input   [15:0]  data_send_i     ,
+  input           scl_i           , // not used
+  input           scl_t           ,
+  output          scl_o           ,
+  input           sda_i           , // not used
+  output          sda_o           ,
+  input           sda_t 
 );
 //-------------------------------------------------------------------------------------------------
 //
@@ -38,10 +46,11 @@ module i2c_sink (
   i2c_sm_type I2C_SM;
 
   logic [2:0] cnt=7;
-  logic [7:0] data1, data2, dev_addr, mem_addr, data_send=8'hC3;
-  logic [15:0] data_in;
-  logic live=0,scl_re,scl_fe,rw,sda_send=0,rw_align_fe;
+  logic [7:0] data1, data2, dev_addr, mem_addr;
+  logic [15:0] data_in, data_send;
+  logic live=0,scl_re,scl_fe,rw,sda_send=0,rw_align_fe,send_byte=0,send_mem;
   logic [1:0] scl_sr,sda_sr;
+  logic [7:0] data_save [1:0];
 
   assign scl_re = (scl_sr == 'b01) ? 1:0;
   assign scl_fe = (scl_sr == 'b10) ? 1:0;
@@ -62,8 +71,10 @@ module i2c_sink (
     
     case (I2C_SM) 
       IDLE: begin 
-        rw      <= '0;
-        data_in <= '0;
+        send_mem  <= 1;
+        send_byte <= 0;
+        rw        <= '0;
+        //data_in   <= '0;
         if (scl_sr[1] && sda_fe) begin //start cond
           live <= 1;
           I2C_SM <= GET_DADDR;
@@ -92,9 +103,12 @@ module i2c_sink (
 
       SEND_DATA: begin 
         if (scl_fe) begin  
-          sda_send <= data_send[cnt];
+          if (send_mem) sda_send <= mem_addr[cnt];
+          else          sda_send <= data_send[(send_byte + 1)*cnt + (send_byte*8 - send_byte*cnt)]; // easily expand number of send bytes (master reads). currently 2bytes max
           cnt <= cnt - 1;
           if (cnt == 0) begin
+            if (!send_mem)  send_byte <= send_byte + 1; 
+            else send_mem <= 0;
             cnt <= 7;
             I2C_SM <= ACK3;
           end
@@ -169,26 +183,34 @@ module i2c_sink (
     if (mem_valid) mem_addr = data2;
   end
 
+  always_ff @(posedge clk) begin
+    if (data_valid && scl_re && !rw) data_save <= {data_save[0],data_in[7:0]};
+  end
+
+  // for master reads, send external user data, or send data written by master writes
+  assign data_send = (data_send_en_i) ? {data_send_i[7:0],data_send_i[15:8]} : {data_save[0],data_save[1]}; 
+
 //-------------------------------------------------------------------------------------------------
 //
 //-------------------------------------------------------------------------------------------------
 
 
+/*
 `ifndef QUESTA
 `ifndef MODELSIM
 
 ila2 ila2_0 (
 	.clk(clk), // input wire clk
-	.probe0(dev_addr      ),  // input wire [7:0]  probe0  
-	.probe1(mem_addr      ),  // input wire [7:0]  probe1
-	.probe2(data_in       ),  // input wire [15:0]  probe1
+	.probe0(data_send_i[7:0]  ),  // input wire [7:0]  probe0  
+	.probe1(data_send_i[15:8] ),  // input wire [7:0]  probe1
+	.probe2(data_in           ),  // input wire [15:0]  probe1
 	.probe3({scl_t, ack, ack_sync, rw, scl_re, scl_fe, sda_re, sda_fe }    ),  // input wire [7:0]  probe1
-  .probe4({dev_valid, mem_valid, data_valid  }   ) // [2:0]
+  .probe4({data_send_en_i, send_byte, data_valid  }   ) // [2:0]
 );
 
 `endif
 `endif 
-
+*/
 
 
 endmodule

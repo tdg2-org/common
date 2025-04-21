@@ -27,6 +27,7 @@ module i2c_top_tb ;
 i2c_top i2c_top_inst (
   .clk    (clk        ),
   .rst    (rst        ),
+  .i2c_send_data_i (0),
   .scl0_i (i2c0_scl_o ),
   .scl0_t (i2c0_scl_o ), // t=1, INPUT, t=0 OUTPUT
   .scl0_o (i2c0_scl_i ),
@@ -43,10 +44,10 @@ i2c_top i2c_top_inst (
 
 logic start_tx=0,loop=0;
 
-localparam int DW = 16;
+localparam int DW = 32;
 //logic [DW-1:0]  data = 'h4512ffff;
-logic RW = 1;//1=RD, 0=WR
-logic [DW-1:0]  data = {7'h58,RW,8'h0};
+logic RW = 0;//1=RD, 0=WR
+logic [DW-1:0]  data = {7'h51,RW,24'h7aa534};
 
 serial_data_gen_i2c_master_sim #(
   .DATA_WIDTH   (DW      ),           
@@ -70,7 +71,7 @@ initial begin
   #50ns;
   start_tx = '1;#50ns;start_tx = '0;
   #5000ns;
-  data = {7'h55,1'b0,8'h12};
+  data = {7'h55,1'b1,24'h0};
   start_tx = '1;#50ns;start_tx = '0;
 
 end 
