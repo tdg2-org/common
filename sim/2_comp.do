@@ -8,4 +8,5 @@ restart
 
 log -r *
 
-run 10us
+#run 10us
+run 160ns

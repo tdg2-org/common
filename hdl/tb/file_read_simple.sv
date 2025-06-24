@@ -8,12 +8,13 @@ module file_read_simple #(
 )(
   input  logic clk,  // Used only if CLKLESS = 0
   output logic signed [DATA_WIDTH-1:0] data_out,
-  output logic valid
+  output logic data_val
 );
 
   integer fid, sid; 
-  logic [DATA_WIDTH-1:0] captured_data=0;
-
+  logic [DATA_WIDTH-1:0] data=0;
+  logic valid = 0;
+  
   if (!(DATA_FORMAT == "hex" || DATA_FORMAT == "dec" || DATA_FORMAT == "bin")) begin
     $fatal(1, "Invalid DATA_FORMAT: '%s'. Must be 'hex', 'dec', or 'bin'.", DATA_FORMAT);
   end
@@ -31,19 +32,41 @@ module file_read_simple #(
     end
   end
 
-  always @(posedge clk) begin
-    case (fmt) 
-      'h0 : sid = $fscanf(fid, "%x\n", data_out);    
-      'h1 : sid = $fscanf(fid, "%b\n", data_out);
-      'h2 : sid = $fscanf(fid, "%d\n", data_out);
-      default: $fatal(1, "DUMMY: %s", DATA_FORMAT);
-    endcase 
-    if (!$feof(fid)) begin
-      //use captured_data as you would any other wire or reg value;
-    end
-  end
+  if (CLKLESS) begin 
+    initial begin 
+      valid = 0;
+      wait (fid != 0); // wait til valid to avoid errors/warnings
+      #(PERIOD_NS);
+      while (!$feof(fid)) begin
+        case (fmt) 
+          'h0 : sid = $fscanf(fid, "%x\n", data);    
+          'h1 : sid = $fscanf(fid, "%b\n", data);
+          'h2 : sid = $fscanf(fid, "%d\n", data);
+          default: $fatal(1, "DUMMY: %s", DATA_FORMAT);
+        endcase 
+        valid = 1;
+        #(PERIOD_NS);
+      end
+      valid = 0;
+    end 
+  end else begin   
+    always @(posedge clk) begin
+      if (!$feof(fid)) begin
+        case (fmt) 
+          'h0 : sid = $fscanf(fid, "%x\n", data);    
+          'h1 : sid = $fscanf(fid, "%b\n", data);
+          'h2 : sid = $fscanf(fid, "%d\n", data);
+          default: $fatal(1, "DUMMY: %s", DATA_FORMAT);
+        endcase 
+        valid <= 1;
+      end else begin
+        valid <= 0;
+      end
+    end  
+  end 
 
-  //assign data_out = captured_data;
+  assign data_val = valid;
+  assign data_out = data;
 
 endmodule
 

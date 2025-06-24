@@ -16,5 +16,5 @@ log -r /*
 
 if {[file exists wave.do]} {do wave.do}
 
-run 5us
-
+#run 5us
+run 160ns
