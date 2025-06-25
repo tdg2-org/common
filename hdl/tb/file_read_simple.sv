@@ -1,4 +1,4 @@
-// file read - ADC data. auto detect hex ("0x"), otherwise signed decimal
+// file read
 module file_read_simple #(
   parameter int DATA_WIDTH = 16,
   parameter bit CLKLESS = 0,
@@ -14,7 +14,7 @@ module file_read_simple #(
   integer fid, sid; 
   logic [DATA_WIDTH-1:0] data=0;
   logic valid = 0;
-  
+
   if (!(DATA_FORMAT == "hex" || DATA_FORMAT == "dec" || DATA_FORMAT == "bin")) begin
     $fatal(1, "Invalid DATA_FORMAT: '%s'. Must be 'hex', 'dec', or 'bin'.", DATA_FORMAT);
   end
