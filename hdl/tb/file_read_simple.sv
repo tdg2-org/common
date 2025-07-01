@@ -1,9 +1,37 @@
-// file read
+/* file read
+
+Vivado 2025.1: file read operation ($fopen) occurs from the 'PROJECT/PROJECT.sim/sim_1/bevah/xsim' directory
+
+  directory structure:
+    repo/VIVADO_PROJECT/VIVADO_PROJECT.sim/sim_1/bevah/xsim
+
+  read file path:
+    repo/FILE_DIR/FILE_NAME
+
+    {"../../../../../", FILE_DIR, FILE_NAME}
+
+
+-----------------------------------------------------------
+QUESTA/MODELSIM, add the following, to be updated later:
+  need to make this universal to vivado/questa
+  
+  ifdef/ifndef
+
+`ifndef QUESTA
+  `ifndef MODELSIM
+    //code to igore in simulation automatically in questa/modelsim
+  `endif
+`endif
+
+
+*/
 module file_read_simple #(
   parameter int DATA_WIDTH = 16,
   parameter bit CLKLESS = 0,
   parameter time PERIOD_NS = 10ns,
+  parameter time START_DELAY = 200ns,
   parameter string DATA_FORMAT = "hex", // hex,dec,bin
+  parameter string FILE_DIR = "sub/common/hdl/tb/", // must have trailing slash
   parameter string FILE_NAME = "adc_data.txt"
 )(
   input  logic clk,  // Used only if CLKLESS = 0
@@ -23,13 +51,20 @@ module file_read_simple #(
   assign fmt =  (DATA_FORMAT == "hex") ? 'h0 : 
                 (DATA_FORMAT == "bin") ? 'h1 : 
                 (DATA_FORMAT == "dec") ? 'h2 : 'h3; // 3 wont happen
-                
+
+  
+  
+  localparam string FNAME = {"../../../../../", FILE_DIR, FILE_NAME};
+
+  string dummy;              
   initial begin
-    fid = $fopen(FILE_NAME, "r");
+    #(START_DELAY);
+    fid = $fopen(FNAME, "r");
     if (!fid) begin
       $display("data_file handle was NULL");
       $finish;
     end
+    void'($fgets(dummy, fid));     // NEW: read & discard the first line
   end
 
   if (CLKLESS) begin 
@@ -78,14 +113,16 @@ endmodule
 file_read_simple #(
   .DATA_WIDTH(12),
   .CLKLESS(0),
-  .PERIOD_NS(20ns),
+  .PERIOD_NS(),
+  .START_DELAY(),
   .DATA_FORMAT("hex"),
-  .FILE_NAME("/mnt/TDG_512/projects/2_zub_msk_udp_dma/sub/common/hdl/tb/adc_data.txt")
-//  .FILE_NAME("adc_data.txt")
+  .FILE_DIR("sub/common/hdl/tb"),
+//  .FILE_NAME("/mnt/TDG_512/projects/2_zub_msk_udp_dma/sub/common/hdl/tb/adc_data.txt")
+  .FILE_NAME("adc_data.txt")
 ) file_read0 (
-  .clk(clk),
-  .data_out(adc_data),
-  .valid(adc_valid)
+  .clk(),
+  .data_out(),
+  .valid()
 );
 
 */
