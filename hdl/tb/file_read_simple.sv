@@ -14,7 +14,7 @@ Vivado 2025.1: file read operation ($fopen) occurs from the 'PROJECT/PROJECT.sim
 -----------------------------------------------------------
 QUESTA/MODELSIM, add the following, to be updated later:
   need to make this universal to vivado/questa
-  
+
   ifdef/ifndef
 
 `ifndef QUESTA
@@ -31,10 +31,11 @@ module file_read_simple #(
   parameter time PERIOD_NS = 10ns,
   parameter time START_DELAY = 200ns,
   parameter string DATA_FORMAT = "hex", // hex,dec,bin
-  parameter string FILE_DIR = "sub/common/hdl/tb/", // must have trailing slash
-  parameter string FILE_NAME = "adc_data.txt"
+  parameter string FILE_DIR = "sub/common/hdl/tb/data/", // must have trailing slash
+  parameter string FILE_NAME = "adc_data.dat"
 )(
-  input  logic clk,  // Used only if CLKLESS = 0
+  input  clk,  // Used only if CLKLESS = 0
+  input  rst,
   output logic signed [DATA_WIDTH-1:0] data_out,
   output logic data_val
 );
@@ -56,8 +57,9 @@ module file_read_simple #(
   
   localparam string FNAME = {"../../../../../", FILE_DIR, FILE_NAME};
 
-  string dummy;              
+  string dummy="";              
   initial begin
+    wait (rst == 1);
     #(START_DELAY);
     fid = $fopen(FNAME, "r");
     if (!fid) begin
@@ -70,7 +72,10 @@ module file_read_simple #(
   if (CLKLESS) begin 
     initial begin 
       valid = 0;
+      wait (rst == 1);
+      #(START_DELAY);
       wait (fid != 0); // wait til valid to avoid errors/warnings
+      wait (dummy != "");
       #(PERIOD_NS);
       while (!$feof(fid)) begin
         case (fmt) 
@@ -82,11 +87,12 @@ module file_read_simple #(
         valid = 1;
         #(PERIOD_NS);
       end
-      valid = 0;
+      //valid = 0;// comment this out to leave valid high forever
     end 
   end else begin   
     always @(posedge clk) begin
-      if (!$feof(fid)) begin
+      //if (!$feof(fid)) begin
+      if ((!$feof(fid)) && (dummy != "")) begin // after file open and first comment line is done. valid aligned to first data sample
         case (fmt) 
           'h0 : sid = $fscanf(fid, "%x\n", data);    
           'h1 : sid = $fscanf(fid, "%b\n", data);
@@ -95,7 +101,7 @@ module file_read_simple #(
         endcase 
         valid <= 1;
       end else begin
-        valid <= 0;
+        //valid <= 0; // comment this out to leave valid high forever
       end
     end  
   end 
@@ -120,6 +126,7 @@ file_read_simple #(
 //  .FILE_NAME("/mnt/TDG_512/projects/2_zub_msk_udp_dma/sub/common/hdl/tb/adc_data.txt")
   .FILE_NAME("adc_data.txt")
 ) file_read0 (
+  .rst(),
   .clk(),
   .data_out(),
   .valid()
