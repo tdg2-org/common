@@ -1,3 +1,4 @@
+`timescale 1ns / 1ps  // <time_unit>/<time_precision>
 
 // on data_val:
 // sr shifts in per bit

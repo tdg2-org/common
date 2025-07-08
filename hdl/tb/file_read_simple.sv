@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps  // <time_unit>/<time_precision>
+
 /* file read
 
 Vivado 2025.1: file read operation ($fopen) occurs from the 'PROJECT/PROJECT.sim/sim_1/bevah/xsim' directory
@@ -23,6 +25,13 @@ QUESTA/MODELSIM, add the following, to be updated later:
   `endif
 `endif
 
+`ifdef QUESTA
+  //questa stuff
+`elsif MODELSIM
+  //modelsim stuff
+`else 
+  //xilinx stuff
+`endif
 
 */
 module file_read_simple #(
@@ -54,8 +63,13 @@ module file_read_simple #(
                 (DATA_FORMAT == "dec") ? 'h2 : 'h3; // 3 wont happen
 
   
-  
-  localparam string FNAME = {"../../../../../", FILE_DIR, FILE_NAME};
+  `ifdef QUESTA
+    localparam string FNAME = {"../", FILE_DIR, FILE_NAME}; // questa/modelsim
+  `elsif MODELSIM
+    localparam string FNAME = {"../", FILE_DIR, FILE_NAME}; // questa/modelsim
+  `else 
+    localparam string FNAME = {"../../../../../", FILE_DIR, FILE_NAME}; // xilinx sim
+  `endif
 
   string dummy="";              
   initial begin
@@ -75,6 +89,7 @@ module file_read_simple #(
       wait (rst == 1);
       #(START_DELAY);
       wait (fid != 0); // wait til valid to avoid errors/warnings
+      $display("fid open1");
       wait (dummy != "");
       #(PERIOD_NS);
       while (!$feof(fid)) begin
@@ -92,16 +107,18 @@ module file_read_simple #(
   end else begin   
     always @(posedge clk) begin
       //if (!$feof(fid)) begin
-      if ((!$feof(fid)) && (dummy != "")) begin // after file open and first comment line is done. valid aligned to first data sample
-        case (fmt) 
-          'h0 : sid = $fscanf(fid, "%x\n", data);    
-          'h1 : sid = $fscanf(fid, "%b\n", data);
-          'h2 : sid = $fscanf(fid, "%d\n", data);
-          default: $fatal(1, "DUMMY: %s", DATA_FORMAT);
-        endcase 
-        valid <= 1;
-      end else begin
-        //valid <= 0; // comment this out to leave valid high forever
+      if (fid != 0) begin 
+        if ((!$feof(fid)) && (dummy != "")) begin // after file open and first comment line is done. valid aligned to first data sample
+          case (fmt) 
+            'h0 : sid = $fscanf(fid, "%x\n", data);    
+            'h1 : sid = $fscanf(fid, "%b\n", data);
+            'h2 : sid = $fscanf(fid, "%d\n", data);
+            default: $fatal(1, "DUMMY: %s", DATA_FORMAT);
+          endcase 
+          valid <= 1;
+        end else begin
+          //valid <= 0; // comment this out to leave valid high forever
+        end
       end
     end  
   end 
