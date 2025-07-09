@@ -17,6 +17,9 @@ module shifter_viewer # (
   int cnt = 0;
   logic [WIDTH-1:0] sr, srh0='0, srh1='0, srh2='0, srh3='0;
   logic nibble, full;
+  logic [7:0]  sr8  ;
+  logic [15:0] sr16 ;
+  logic [31:0] sr32 ;
 
   always_ff @(posedge clk) begin 
     if (rst) begin 
@@ -44,6 +47,11 @@ module shifter_viewer # (
       end
     end
   end
+
+  assign sr8  = sr[7:0]   ;
+  assign sr16 = sr[15:0]  ;
+  assign sr32 = sr[31:0]  ;
+
 
   //assign sr_o = sr;
   //assign srh_o = srh;
