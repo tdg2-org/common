@@ -30,6 +30,7 @@ module variable_strobe # (
   
   assign stb_o =(pntr == 0)  ? sr[0] :
                 (pntr == 1)  ? sr[1] :
+                (pntr == 2)  ? sr[2] :
                 (pntr == 3)  ? sr[3] :
                 (pntr == 4)  ? sr[4] :
                 (pntr == 5)  ? sr[5] :
