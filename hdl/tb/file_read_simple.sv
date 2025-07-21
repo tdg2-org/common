@@ -68,7 +68,7 @@ module file_read_simple #(
   `elsif MODELSIM
     localparam string FNAME = {"../", FILE_DIR, FILE_NAME}; // questa/modelsim
   `else 
-    localparam string FNAME = {"../../../../../", FILE_DIR, FILE_NAME}; // xilinx sim
+    localparam string FNAME = {"../../../../../sub/msk_modem/", FILE_DIR, FILE_NAME}; // xilinx sim 'PROJECT/PROJECT.sim/sim_1/bevah/xsim'
   `endif
 
   string dummy="";              
