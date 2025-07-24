@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps  // <time_unit>/<time_precision>
 
 module array_shift_delay # (
-  parameter int DELAY_LEN = 8,
-  parameter int DW        = 16
+  parameter int LEN = 8,
+  parameter int DW  = 16
 )(
   input                         clk         ,
   input                         rst         ,
@@ -12,24 +12,24 @@ module array_shift_delay # (
   output  logic                 d_out_val
 );
 
-  logic signed [DW-1:0] d_delay [DELAY_LEN-1:0] = '{default:'0};
-  logic [DELAY_LEN-1:0] val_delay;
+  logic signed [DW-1:0] d_delay [LEN-1:0] = '{default:'0};
+  logic [LEN-1:0] val_delay;
 
   always_ff @(posedge clk) begin 
-    d_delay   <= {d_delay[DELAY_LEN-2:0], d_in};
-    val_delay <= {val_delay[DELAY_LEN-2:0], d_in_val};
+    d_delay   <= {d_delay[LEN-2:0], d_in};
+    val_delay <= {val_delay[LEN-2:0], d_in_val};
   end 
 
-  assign d_out      = d_delay[DELAY_LEN-1];
-  assign d_out_val  = val_delay[DELAY_LEN-1];
+  assign d_out      = d_delay[LEN-1];
+  assign d_out_val  = val_delay[LEN-1];
 
 
 endmodule
 /*
 
   array_shift_delay # (
-    .DELAY_LEN  ()   ,
-    .DW         ()
+    .LEN  (),
+    .DW   ()
   ) array_shift_delay (
     .clk        ()   ,
     .rst        ()   ,
@@ -38,5 +38,16 @@ endmodule
     .d_out      ()   ,
     .d_out_val  ()
   );
+
+  array_shift_delay # (
+    .LEN(), .DW()
+  ) array_shift_delay (
+    .clk(clk), .rst(rst),
+    .d_in     (),
+    .d_in_val (),
+    .d_out    (),
+    .d_out_val()
+  );
+
 
 */
