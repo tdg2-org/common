@@ -12,8 +12,8 @@ module shifter_viewer # (
   input clk,
   input rst,
   input data_i,
-  input data_val_i
-  //output [WIDTH-1:0] sr_o, srh_o
+  input data_val_i,
+  output [WIDTH-1:0] sr_o
 );
 
   int cnt = 0;
@@ -54,21 +54,17 @@ module shifter_viewer # (
   assign sr16 = sr[15:0]  ;
   assign sr32 = sr[31:0]  ;
 
-
-  //assign sr_o = sr;
-  //assign srh_o = srh;
+  assign sr_o = sr;
 
 //-------------------------------------------------------------------------------------------------
 // check against FIXED_DATA
 //-------------------------------------------------------------------------------------------------
-
-  //localparam int FIXED_WIDTH = $bits(FIXED_DATA);
-  
   localparam logic [FDW*2 - 1:0] FIXED_WRAP = {FIXED_DATA, FIXED_DATA}; // Doubled for wraparound matching
+  localparam DATA_CHECK_EN = (FIXED_DATA == '0 && FDW =='0) ? '0 : '1;
+  //localparam int FIXED_WIDTH = $bits(FIXED_DATA);
 
-  localparam data_check_en = (FIXED_DATA == '0 && FDW =='0) ? '0 : '1;
-
-  generate if (data_check_en) begin
+generate if (DATA_CHECK_EN) begin 
+  
     logic [127:0] srh [3:0];
     logic [3:0] pattern_match, pattern_match_raw;
     
@@ -91,13 +87,14 @@ module shifter_viewer # (
     always_ff @(posedge clk) begin
       for (int n = 0; n <= 3; n++)  pattern_match[n] <= pattern_match_raw[n];
     end
-  end endgenerate
 
+end endgenerate
 
 endmodule
 /*
 
 shifter_viewer # (
+  .CHECK_DATA (0),
   .FDW        (),
   .FIXED_DATA (),
   .WIDTH      (64)
@@ -106,8 +103,7 @@ shifter_viewer # (
   .rst      (),
   .data     (),
   .data_val (),
-  .sr_o     (),
-  .srh_o    ()
+  .sr_o     ()
 );
 
 */
