@@ -27,7 +27,9 @@ sim/**
 
 # MUST come last so it overrides the re-include + un-ignores:
 # ignore any dir named OFF at top-level and at any depth, plus all its contents
-sim/OFF/**
-sim/**/OFF/**
+# sim/OFF/**
+# sim/**/OFF/**
 
+# ingore any 'IGNORE' folder anywhere recursively
+# IGNORE/
 
