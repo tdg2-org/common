@@ -1,18 +1,33 @@
 # git is case sensitive by default
 
+# hdl files only:
+
+# hdl/**
+# !hdl/**/
+# !hdl/**/*.v
+# !hdl/**/*.sv
+# !hdl/**/*.vhd
+# !hdl/**/*.vhdl
+
+
+
 #/sim/*
 #!/sim/*.do 
 #!/sim/*.tcl 
 
 # ignore everything in sim except .do/.tcl recursively. 'OFF' folders completely ignored
-/sim/**               # ignore everything under sim
-!/sim/**/             # re-include dirs so negations can match files
-!/sim/**/*.do         # keep .do files
-!/sim/**/*.tcl        # keep .tcl files
+# ignore everything under sim
+sim/**
+# re-include dirs so negations can match files
+!sim/**/
+# keep .do files
+!sim/**/*.do
+# keep .tcl files
+!sim/**/*.tcl
 
 # MUST come last so it overrides the re-include + un-ignores:
 # ignore any dir named OFF at top-level and at any depth, plus all its contents
-/sim/OFF/**
-/sim/**/OFF/**
+sim/OFF/**
+sim/**/OFF/**
 
 

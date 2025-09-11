@@ -1,13 +1,15 @@
-set tbFile axis_stim_syn_tb
+set tbFile dft_tb
 
 
 #--------------------------------------------------------------------------------------------------
 # common
 #--------------------------------------------------------------------------------------------------
-set comDir ../hdl
+set comDir ../../hdl
 set comFiles {\
-  tb/axis_stim_syn_tb.sv \
-  axis_stim_syn.sv \
+  tb/dft_tb.sv \
+  dft/dft_mdl.sv \
+  sin_gen_mdl.sv \
+  dft/dft_bin_real_mdl.sv \
 }
 
 foreach x $comFiles {
