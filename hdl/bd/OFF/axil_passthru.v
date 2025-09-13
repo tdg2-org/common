@@ -5,7 +5,10 @@
 		parameter integer C_S_AXI_ADDR_WIDTH	= 7
 	)
 	(
-		input wire [C_S_AXI_ADDR_WIDTH-1 : 0] 			S_AXI_AWADDR,
+		input aclk,     // n/c for vivado critical warnings
+    input aresetn,  // n/c
+
+    input wire [C_S_AXI_ADDR_WIDTH-1 : 0] 			S_AXI_AWADDR,
 		input wire [2 : 0] 													S_AXI_AWPROT,
 		input wire  																S_AXI_AWVALID,
 		output wire  																S_AXI_AWREADY,
