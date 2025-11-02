@@ -143,14 +143,19 @@ fir_compiler_0 rrc_int (
 );
 */
 
+logic [31:0] fdo;
+logic signed [13:0] fd;
+
 fir_rrc_float_0 fir_rrc_float (
   .aclk               (clk  ),                  // input wire aclk
   .s_axis_data_tvalid (fval  ),  // input wire s_axis_data_tvalid
   .s_axis_data_tready (frdy  ),  // output wire s_axis_data_tready
   .s_axis_data_tdata  (fdat  ),  // input wire [15 : 0] s_axis_data_tdata
-  .m_axis_data_tvalid (   ),  // output wire m_axis_data_tvalid
-  .m_axis_data_tdata  (   )   // output wire [39 : 0] m_axis_data_tdata
+  .m_axis_data_tvalid (     ),    // output wire m_axis_data_tvalid
+  .m_axis_data_tdata  (fdo  )     // output wire [31 : 0] m_axis_data_tdata
 );
+
+assign fd = $signed(fdo[26:13]);
 
 //rrc_float_0 rrc_float_0 (
 //  .aclk               (clk  ),                  // input wire aclk
